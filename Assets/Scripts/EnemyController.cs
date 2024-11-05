@@ -11,41 +11,89 @@ public class EnemyController : MonoBehaviour
     public float speedRotation;
     public float stoppingDistance;
 
+    private Rigidbody rb;
+    private Rigidbody[] boneRigidbodies;
+
+    private Animator animator;
+
+    private Collider mainCollider;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        boneRigidbodies = GetComponentsInChildren<Rigidbody>();
+        animator = GetComponent<Animator>();
+        mainCollider = GetComponent<Collider>();
+    }
+
     void Update()
     {
         LookPlayer();
         Move();
     }
 
-    void LookPlayer()
-    {
-        
-        Vector3 direction = (player.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, speedRotation * Time.deltaTime);
-    }
+    
 
     private void Move()
     {
         if (player)
         {
             float dist = Vector3.Distance(player.position, transform.position);
-            print("Distance to other: " + dist);
+            Debug.Log(dist);
 
-            if(dist > 3) 
+            if (dist > distance)
             {
-                transform.position = Vector3.MoveTowards(player.transform.position, transform.position, speed);
+                transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
             }
+            
         }
     }
 
-    public void Kill()
+
+    void LookPlayer()
     {
-        Destroy(gameObject);
+
+        Vector3 direction = (player.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, speedRotation * Time.deltaTime);
+    }
+    public void kill()
+    {
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+        }
+        if (animator != null)
+        {
+            animator.enabled = false;
+        }
+        if (mainCollider != null)
+        {
+            mainCollider.enabled = false;
+        }
+        if (boneRigidbodies != null && boneRigidbodies.Length > 0)
+        {
+            foreach (Rigidbody boneRb in boneRigidbodies)
+            {
+                boneRb.isKinematic = false;
+            }
+        }
+        Destroy(this);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.CompareTag("bullet"))
+        {
+            kill();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.CompareTag("Explosion"))
+        {
+            kill();
+        }
     }
 }

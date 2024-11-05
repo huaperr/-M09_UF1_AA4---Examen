@@ -7,7 +7,10 @@ public class PlayerController : MonoBehaviour
     public float speed;
     Rigidbody rb;
     public float speedRotation;
-    public Transform target;
+    public Transform player;
+    public Transform quad;
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();

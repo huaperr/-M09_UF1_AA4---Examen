@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2631590126819612428}
   m_Layer: 0
   m_Name: Grenade
-  m_TagString: Untagged
+  m_TagString: Explosion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,6 +153,7 @@ MonoBehaviour:
     m_Bits: 247
   launchForce: 100
   timer: 3
+  countdown: 0
   radius: 5
   explosionForce: 100
   particles: {fileID: 460494424281584512, guid: c9af61b6b292f5a41a1be91e9def62b2, type: 3}

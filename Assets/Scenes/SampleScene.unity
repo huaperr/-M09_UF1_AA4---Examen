@@ -1177,9 +1177,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74a2534f9eb57c34b8bfe5178102e0d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1074639084}
+  quad: {fileID: 0}
+  mat: {fileID: 0}
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
   speed: 20
   speedRotation: 2
-  target: {fileID: 1432227178}
 --- !u!135 &1074639086
 SphereCollider:
   m_ObjectHideFlags: 0
