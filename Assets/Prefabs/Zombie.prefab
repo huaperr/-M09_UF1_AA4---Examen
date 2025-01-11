@@ -22,11 +22,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e667cb9eace420846b5336b1ad0f9acd, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e667cb9eace420846b5336b1ad0f9acd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e667cb9eace420846b5336b1ad0f9acd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1490,8 +1490,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   speed: 5
-  speedRotation: 2
-  stoppingDistance: 2
+  speedRotation: 10
+  stoppingDistance: 3
 --- !u!1 &6107911781651560435 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7287186578875780037, guid: e667cb9eace420846b5336b1ad0f9acd, type: 3}

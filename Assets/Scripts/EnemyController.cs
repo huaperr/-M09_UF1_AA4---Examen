@@ -23,6 +23,7 @@ public class EnemyController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         boneRigidbodies = GetComponentsInChildren<Rigidbody>();
         animator = GetComponent<Animator>();
+        player = GameObject.Find("Player").transform;
         mainCollider = GetComponent<Collider>();
     }
 
@@ -83,6 +84,7 @@ public class EnemyController : MonoBehaviour
                 boneRb.isKinematic = false;
             }
         }
+        Rounds.instance.enemies.Remove(this.gameObject);
         Destroy(this);
     }
 
