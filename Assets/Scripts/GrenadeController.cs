@@ -15,15 +15,17 @@ public class GrenadeController : MonoBehaviour
     public float explosionForce;
     public GameObject particles;
 
-    EnemyController enemy;
+    public Transform player;
     void Start()
     {
         countdown = timer;
+        rb = GetComponent<Rigidbody>();
+        LaunchGrenade();
     }
 
     private void Update()
     {
-        LaunchGrenade();
+        
         countdown -= Time.deltaTime;
 
         if (countdown < 0 && !hasExploded) 
@@ -37,7 +39,7 @@ public class GrenadeController : MonoBehaviour
         {
             Vector3 launchDirection = transform.forward;
 
-            rb.AddForce(launchDirection * launchForce, ForceMode.Impulse);
+            rb.AddForce((3 * player.forward + player.up) * launchForce, ForceMode.Impulse);
         }
     }
     void Explosion()

@@ -30,9 +30,15 @@ public class EnemyController : MonoBehaviour
     {
         LookPlayer();
         Move();
+
+
+
     }
 
-    
+    void RotateTowardsPlayer()
+    {
+        
+    }
 
     private void Move()
     {
@@ -53,9 +59,14 @@ public class EnemyController : MonoBehaviour
     void LookPlayer()
     {
 
-        Vector3 direction = (player.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, speedRotation * Time.deltaTime);
+        Vector3 dir = player.position - transform.position;
+        dir.y = 0;
+
+        if (dir == Vector3.zero)
+            return;
+
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * speedRotation);
     }
     public void kill()
     {
