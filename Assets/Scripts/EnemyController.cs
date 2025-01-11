@@ -30,14 +30,6 @@ public class EnemyController : MonoBehaviour
     {
         LookPlayer();
         Move();
-
-
-
-    }
-
-    void RotateTowardsPlayer()
-    {
-        
     }
 
     private void Move()
@@ -54,7 +46,6 @@ public class EnemyController : MonoBehaviour
             
         }
     }
-
 
     void LookPlayer()
     {

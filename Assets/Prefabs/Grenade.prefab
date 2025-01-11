@@ -152,6 +152,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 247
   launchForce: 3
+  launchRotation: 1000
   timer: 3
   countdown: 0
   radius: 5

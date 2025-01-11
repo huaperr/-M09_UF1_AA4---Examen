@@ -5,24 +5,21 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-    Rigidbody rb;
     public float speedRotation;
-    public Transform player;
-    public Transform quad;
+    public Transform target;
 
-
+    private Rigidbody rb;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
-    void Update()
+    void FixedUpdate()
     {
         float horizon = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        float MoveSpeed = speed;
 
-        Vector3 move = transform.right * horizon + transform.forward * vertical;
-        rb.MovePosition(transform.position + move.normalized * speed * Time.deltaTime);
+        Vector3 mov = new Vector3(horizon, 0, vertical) * speed;
+        rb.velocity = new Vector3(mov.x, rb.velocity.y, mov.z);
     }
 }

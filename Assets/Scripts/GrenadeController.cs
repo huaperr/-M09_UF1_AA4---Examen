@@ -8,6 +8,7 @@ public class GrenadeController : MonoBehaviour
     Rigidbody rb;
     public LayerMask mask;
     public float launchForce;
+    public float launchRotation;
     public float timer;
     public float countdown;
     private bool hasExploded;
@@ -40,6 +41,7 @@ public class GrenadeController : MonoBehaviour
             Vector3 launchDirection = transform.forward;
 
             rb.AddForce((3 * player.forward + player.up) * launchForce, ForceMode.Impulse);
+            rb.AddTorque(Random.Range(1, 10) * player.forward * launchRotation);
         }
     }
     void Explosion()
