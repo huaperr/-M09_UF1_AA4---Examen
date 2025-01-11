@@ -1141,6 +1141,10 @@ PrefabInstance:
       propertyPath: speedRotation
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5578749674063292883, guid: 4d48bc6b7eceb684eb56268606e53242, type: 3}
+      propertyPath: stoppingDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1288,6 +1292,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 64
+  currentTarget: {fileID: 1432227177}
 --- !u!1 &1173291741
 GameObject:
   m_ObjectHideFlags: 0

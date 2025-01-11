@@ -39,6 +39,9 @@ public class EnemyController : MonoBehaviour
             float dist = Vector3.Distance(player.position, transform.position);
             Debug.Log(dist);
 
+            
+
+            animator.SetFloat("Velocity", Mathf.InverseLerp(0, 1, dist));
             if (dist > distance)
             {
                 transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
