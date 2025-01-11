@@ -54,6 +54,10 @@ public class GrenadeController : MonoBehaviour
                 continue;
             }
             Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+            if (nearbyObject.CompareTag("Enemy"))
+            {
+                nearbyObject.GetComponent<EnemyController>().kill();
+            }
             if (rb != null)
             {
                 rb.AddExplosionForce(explosionForce, transform.position, radius);

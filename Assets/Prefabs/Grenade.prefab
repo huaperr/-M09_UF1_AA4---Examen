@@ -154,6 +154,6 @@ MonoBehaviour:
   launchForce: 100
   timer: 3
   countdown: 0
-  radius: 5
+  radius: 100
   explosionForce: 100
   particles: {fileID: 460494424281584512, guid: c9af61b6b292f5a41a1be91e9def62b2, type: 3}
