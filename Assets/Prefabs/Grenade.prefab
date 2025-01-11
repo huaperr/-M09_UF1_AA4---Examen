@@ -151,7 +151,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 247
-  launchForce: 3
+  launchForce: 2
   launchRotation: 1000
   timer: 3
   countdown: 0

@@ -40,8 +40,8 @@ public class GrenadeController : MonoBehaviour
         {
             Vector3 launchDirection = transform.forward;
 
-            rb.AddForce((3 * player.forward + player.up) * launchForce, ForceMode.Impulse);
-            rb.AddTorque(Random.Range(1, 10) * player.forward * launchRotation);
+            rb.AddForce((2f * player.forward + player.up) * launchForce, ForceMode.Impulse);
+            rb.AddTorque(Random.Range(-10, 10) * player.forward * launchRotation);
         }
     }
     void Explosion()
